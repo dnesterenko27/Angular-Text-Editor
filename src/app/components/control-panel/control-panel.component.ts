@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, Input, OnInit } from '@angular/core';
 import { SynonymService } from '../../services/synonym-service/synonym.service';
 import { Observable } from 'rxjs';
 
@@ -10,20 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class ControlPanelComponent implements OnInit {
   synonyms$: Observable<any>;
+  @Input() el: HTMLElement;
 
-  constructor(private cd: ChangeDetectorRef,
-              private synonymService: SynonymService) {
-  }
-
-  private _el: HTMLElement;
-
-  get el(): HTMLElement {
-    return this._el;
-  }
-
-  @Input() set el(data) {
-    this._el = data;
-    this.cd.markForCheck();
+  constructor(private synonymService: SynonymService) {
   }
 
   ngOnInit(): void {
