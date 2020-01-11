@@ -1,3 +1,8 @@
-<div class="file">
-  {{text$ | async}}
+<label>
+  <textarea></textarea>
+</label>
+<div class="file"
+     [innerHTML]="splitText(text$ | async)">
 </div>
+<app-control-panel #controlPanel
+                   [el]="selectedEl"></app-control-panel>

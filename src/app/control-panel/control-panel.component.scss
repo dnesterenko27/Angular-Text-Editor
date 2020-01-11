@@ -1,17 +1,42 @@
 :host {
-  background-color: #fff;
-  height: 25px;
+  position: absolute;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  flex-direction: column;
-  padding-top: 5px;
+  width: 110px;
+  padding: 10px 5px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .78);
+  pointer-events: none;
+  border-radius: 10px;
+  transition: opacity .3s ease;
 }
 
-.format-actions {
-  width: 200px;
-  margin-right: 400px;
+.format-action {
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color .3s ease;
+  outline: none;
+
+  &.active {
+    border-color: darkred;
+  }
 }
 
-button + button {
-  margin-left: 5px;
+.input-color {
+  visibility: hidden;
+
+  &-wrap {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
 }
