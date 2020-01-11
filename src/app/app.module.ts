@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FileComponent } from './file/file.component';
-import { ControlPanelComponent } from './control-panel/control-panel.component';
-import { HeaderComponent } from './header/header.component';
+import { FileComponent } from './components/file/file.component';
+import { ControlPanelComponent } from './components/control-panel/control-panel.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
-import { TextService } from './text-service/text.service';
-import { FooterComponent } from './footer/footer.component';
+import { TextService } from './services/text-service/text.service';
+import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,18 +15,19 @@ import { FooterComponent } from './footer/footer.component';
     FileComponent,
     ControlPanelComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
-    TextService
+    TextService,
   ],
   bootstrap: [
-    AppComponent
-  ]
+    AppComponent,
+  ],
 })
 export class AppModule {
 }

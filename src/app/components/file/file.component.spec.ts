@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FileComponent } from './file.component';
-import { TextService } from '../text-service/text.service';
+import { TextService } from '../../services/text-service/text.service';
 
 describe('FileComponent', () => {
   let component: FileComponent;

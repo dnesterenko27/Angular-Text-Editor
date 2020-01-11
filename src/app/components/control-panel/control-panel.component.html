@@ -1,0 +1,29 @@
+<div class="text-styling">
+  <button class="format-action"
+          [class.active]="el && el.style.fontWeight === 'bold'"
+          (click)="toggleBold(el)">
+    <b>B</b>
+  </button>
+  <button class="format-action"
+          [class.active]="el && el.style.fontStyle === 'italic'"
+          (click)="toggleItalic(el)">
+    <i>I</i>
+  </button>
+  <button class="format-action"
+          [class.active]="el && el.style.textDecoration === 'underline'"
+          (click)="toggleUnderline(el)">
+    <u>U</u>
+  </button>
+  <label class="input-color-wrap"
+         [style.backgroundColor]="el && el.style.color">
+    <input type="color"
+           class="input-color"
+           (input)="setColor(el, $event)">
+  </label>
+</div>
+
+<div class="synonyms">
+  <span *ngFor="let synonym of synonyms$ | async"
+        class="synonym"
+        (click)="switchWord(el, synonym?.word)">{{synonym?.word}}</span>
+</div>

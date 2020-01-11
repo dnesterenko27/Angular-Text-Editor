@@ -1,15 +1,18 @@
 :host {
   position: absolute;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 110px;
+  min-width: 130px;
+  height: 72px;
   padding: 10px 5px;
   opacity: 0;
   background-color: rgba(0, 0, 0, .78);
   pointer-events: none;
   border-radius: 10px;
-  transition: opacity .3s ease;
+  transition: opacity .3s ease, width .3s ease;
+  z-index: 1000;
 }
 
 .format-action {
@@ -38,5 +41,33 @@
     border: 2px solid #fff;
     border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
   }
+}
+
+.synonyms {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .synonym {
+    display: block;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 10px;
+    cursor: pointer;
+
+    & + .synonym {
+      margin-left: 5px;
+    }
+  }
+}
+
+.text-styling {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 130px;
+  margin-bottom: 10px;
 }

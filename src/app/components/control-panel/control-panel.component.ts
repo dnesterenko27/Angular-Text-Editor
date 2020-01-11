@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Input, OnInit } from '@angular/core';
+import { SynonymService } from '../../services/synonym-service/synonym.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-control-panel',
@@ -6,8 +8,27 @@ import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angula
   styleUrls: ['./control-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ControlPanelComponent {
-  @Input() el: HTMLElement;
+export class ControlPanelComponent implements OnInit {
+  synonyms$: Observable<any>;
+
+  constructor(private cd: ChangeDetectorRef,
+              private synonymService: SynonymService) {
+  }
+
+  private _el: HTMLElement;
+
+  get el(): HTMLElement {
+    return this._el;
+  }
+
+  @Input() set el(data) {
+    this._el = data;
+    this.cd.markForCheck();
+  }
+
+  ngOnInit(): void {
+    this.synonyms$ = this.synonymService.getSynonyms();
+  }
 
   @HostListener('click', ['$event']) onClick($event) {
     $event.stopPropagation();
@@ -27,5 +48,9 @@ export class ControlPanelComponent {
 
   setColor(el: HTMLElement, event) {
     el.style.color = event.target.value;
+  }
+
+  switchWord(el: HTMLElement, word) {
+    el.innerText = word;
   }
 }

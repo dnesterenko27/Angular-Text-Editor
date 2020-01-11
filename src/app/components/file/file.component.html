@@ -1,0 +1,13 @@
+<div class="file"
+     #textField
+     [attr.contenteditable]="contentEditable"
+     [innerHTML]="splitText(text$ | async)">
+</div>
+
+<button (click)="toggleEditing(textField)"
+        class="btn-edit">
+  {{contentEditable ? 'Save' : 'Edit'}}
+</button>
+
+<app-control-panel #controlPanel
+                   [el]="selectedEl"></app-control-panel>

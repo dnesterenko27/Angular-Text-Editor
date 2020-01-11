@@ -1,6 +1,7 @@
 {
-  "name": "ae-frontend-texteditor-angular-skeleton",
+  "name": "texteditor-angular",
   "version": "0.0.1",
+  "author": "Danylo Nesterenko",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
