@@ -18,8 +18,8 @@ export class FileComponent implements OnInit {
   text$: Observable<string>;
   clickStream$ = new Subject<any>();
 
-  @ViewChild('controlPanel', {read: ElementRef}) controlPanel;
-  @ViewChild('textField', {read: ElementRef}) textField;
+  @ViewChild('controlPanel', {read: ElementRef, static: false}) controlPanel;
+  @ViewChild('textField', {read: ElementRef, static: false}) textField;
 
   constructor(private textService: TextService,
               private synonymService: SynonymService) {
